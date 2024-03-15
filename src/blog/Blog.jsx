@@ -1,7 +1,9 @@
 import { FaRegBookmark } from "react-icons/fa";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const Blog = ({data}) => {
+const Blog = ({data,handleBookmark,markAsRead}) => {
 
     const{cover,title,author_img,author,posted_date,reading_time,hashtags}=data
     return (
@@ -19,8 +21,8 @@ const Blog = ({data}) => {
 
      <div className="flex items-center gap-1">
      <p>{reading_time} min read</p>
-     <FaRegBookmark />
-
+     <FaRegBookmark onClick={()=>handleBookmark(data)}/>
+     <ToastContainer />
      </div>
 
   </div>
@@ -35,12 +37,12 @@ const Blog = ({data}) => {
 
     </div>
   </div>
-  <button className="btn btn-link justify-start text-lg">Mark as read</button>
+  <button className="btn btn-link justify-start text-lg" onClick={()=>markAsRead(reading_time)}>Mark as read</button>
 </div>
 
 
         </div>
-        
+
     );
 };
 

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Blog from "../blog/Blog";
 import { useState } from "react";
 
-const Blogs = () => {
+const Blogs = ({handleBookmark,markAsRead}) => {
 
 const [data,setData]=useState([])
 
@@ -20,7 +20,7 @@ console.log(data)
 
         <div className="md:w-[70%] space-y-20">
             {
-                data.map((Data,inx)=><Blog key={inx} data={Data}/>)
+                data.map((Data,inx)=><Blog key={inx} data={Data} handleBookmark={handleBookmark} markAsRead={markAsRead}/>)
             }
         </div>
 
